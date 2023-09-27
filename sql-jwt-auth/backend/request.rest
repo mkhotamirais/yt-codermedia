@@ -1,0 +1,36 @@
+GET http://localhost:5000/users
+###
+GET http://localhost:5000/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hbWUiOiJhZG1pbiIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwiaWF0IjoxNjk1ODAxMjAwLCJleHAiOjE2OTU4MDEyMTV9.zW4c8LDvxd1M7_iJCDRDnuz2aB58wJzZJTMuhrvmPxo
+###
+POST http://localhost:5000/users
+Content-Type: application/json
+
+{
+    "name": "admin2",
+    "email": "admin2@gmail.com",
+    "password": "123",
+    "password2": "1232"
+}
+###
+POST http://localhost:5000/users
+Content-Type: application/json
+
+{
+    "name": "admin3",
+    "email": "admin3@gmail.com",
+    "password": "123",
+    "password2": "1232"
+}
+###
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "email": "admin@gmail.com",
+    "password": "123"
+}
+###
+GET http://localhost:5000/token
+###
+DELETE http://localhost:5000/logout
