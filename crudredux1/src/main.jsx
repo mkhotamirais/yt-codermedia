@@ -2,23 +2,32 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "bulma/css/bulma.css";
 import { Provider } from "react-redux";
-import { store } from "./app/store";
+import store from "./app/store.js";
 import {
   RouterProvider,
   createBrowserRouter,
   createRoutesFromElements,
   Route,
 } from "react-router-dom";
-import ShowProduct from "./components/ShowProduct";
-import AddProduct from "./components/AddProduct";
-import EditProduct from "./components/EditProduct";
+import Counter from "./components/Counter.jsx";
+import Home from "./pages/Home.jsx";
+import AddProduct from "./pages/AddProduct.jsx";
+import ShowProduct from "./pages/ShowProduct.jsx";
+import AddShow from "./pages/AddShow.jsx";
+import EditProduct from "./pages/EditProduct.jsx";
+import Counter2 from "./components/Counter2.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route path="/" element={<ShowProduct />} />
-      <Route path="/add" element={<AddProduct />} />
-      <Route path="/edit/:id" element={<EditProduct />} />
+      <Route path="/" element={<Home />}>
+        <Route path="/counter" element={<Counter />} />
+        <Route path="/counter2" element={<Counter2 />} />
+        <Route path="/add" element={<AddProduct />} />
+        <Route path="/edit/:id" element={<EditProduct />} />
+        <Route path="/show" element={<ShowProduct />} />
+        <Route path="/addShow" element={<AddShow />} />
+      </Route>
     </>
   )
 );
