@@ -1,0 +1,23 @@
+GET http://localhost:3000/users
+###
+GET http://localhost:3000/users/6567affe56494422d3aee598
+###
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+    "name": "abdul",
+    "email": "abdul@gmail.com",
+    "gender": "male"
+}
+###
+PATCH http://localhost:3000/users/6567affe56494422d3aee598
+Content-Type: application/json
+
+{
+    "name": "ahmad update",
+    "email": "ahmadupdate@gmail.com",
+    "gender": "male"
+}
+###
+DELETE http://localhost:3000/users/6567b1175f3f1ce85124e6f0

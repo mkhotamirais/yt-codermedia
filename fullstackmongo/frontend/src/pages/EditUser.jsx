@@ -13,7 +13,7 @@ const EditUser = () => {
     getUserById();
   }, []);
   const getUserById = async () => {
-    const response = await axios.get(`http://localhost:5000/users/${id}`);
+    const response = await axios.get(`http://localhost:3000/users/${id}`);
     setName(response.data.name);
     setEmail(response.data.email);
     setGender(response.data.gender);
@@ -21,11 +21,7 @@ const EditUser = () => {
   const updateUser = async (e) => {
     e.preventDefault();
     try {
-      await axios.patch(`http://localhost:5000/users/${id}`, {
-        name,
-        email,
-        gender,
-      });
+      await axios.patch(`http://localhost:3000/users/${id}`, { name, email, gender });
       navigate("/");
     } catch (err) {
       console.log(err);
@@ -64,10 +60,7 @@ const EditUser = () => {
               <label className="label">Gender</label>
               <div className="control">
                 <div className="select is-fullwidth">
-                  <select
-                    value={gender}
-                    onChange={(e) => setGender(e.target.value)}
-                  >
+                  <select value={gender} onChange={(e) => setGender(e.target.value)}>
                     <option value="male">male</option>
                     <option value="female">female</option>
                   </select>

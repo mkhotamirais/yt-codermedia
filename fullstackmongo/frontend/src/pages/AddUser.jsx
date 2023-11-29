@@ -10,12 +10,10 @@ const AddUser = () => {
   const saveUser = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/users", {
-        name,
-        email,
-        gender,
-      });
-      navigate("/");
+      if ((name, email, gender)) {
+        await axios.post("http://localhost:3000/users", { name, email, gender });
+        navigate("/");
+      }
     } catch (err) {
       console.log(err);
     }
@@ -53,10 +51,7 @@ const AddUser = () => {
               <label className="label">Gender</label>
               <div className="control">
                 <div className="select is-fullwidth">
-                  <select
-                    value={gender}
-                    onChange={(e) => setGender(e.target.value)}
-                  >
+                  <select value={gender} onChange={(e) => setGender(e.target.value)}>
                     <option value="male">male</option>
                     <option value="female">female</option>
                   </select>

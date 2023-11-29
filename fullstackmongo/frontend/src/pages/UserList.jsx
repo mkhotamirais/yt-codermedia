@@ -1,17 +1,16 @@
 import axios from "axios";
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const UserList = () => {
   const [users, setUsers] = useState([]);
   const getUsers = async () => {
-    const response = await axios.get("http://localhost:5000/users");
+    const response = await axios.get("http://localhost:3000/users");
     setUsers(response.data);
   };
   const deleteUser = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/users/${id}`);
+      await axios.delete(`http://localhost:3000/users/${id}`);
       getUsers();
     } catch (err) {
       console.log(err);
@@ -23,7 +22,7 @@ const UserList = () => {
   return (
     <div className="container">
       <div className="columns">
-        <div className="column is-half">
+        <div className="column">
           <Link to="add" className="button is-success mt-5">
             Add User
           </Link>
@@ -45,16 +44,10 @@ const UserList = () => {
                   <td>{user.email}</td>
                   <td>{user.gender}</td>
                   <td>
-                    <Link
-                      to={`edit/${user._id}`}
-                      className="button is-info is-small"
-                    >
+                    <Link to={`edit/${user._id}`} className="button is-info is-small">
                       Edit
                     </Link>
-                    <button
-                      onClick={() => deleteUser(user._id)}
-                      className="button is-danger is-small"
-                    >
+                    <button onClick={() => deleteUser(user._id)} className="button is-danger is-small">
                       Del
                     </button>
                   </td>
