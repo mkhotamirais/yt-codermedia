@@ -20,7 +20,7 @@ const EditUser = () => {
     e.preventDefault();
     try {
       await axios.patch(`http://localhost:3000/users/${id}`, { name, email, gender });
-      navigate("/");
+      navigate("/users");
     } catch (error) {
       console.log(error);
     }
@@ -62,7 +62,7 @@ const EditUser = () => {
             <button type="submit" className="button is-success">
               Edit
             </button>
-            <Link to="/" className="button">
+            <Link to="/users" className="button">
               Back
             </Link>
           </div>

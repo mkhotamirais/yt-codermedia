@@ -31,7 +31,7 @@ const UserList = () => {
       <td>{user.email}</td>
       <td>{user.gender}</td>
       <td>
-        <Link to={`/edit/${user.id}`} className="button is-small is-info">
+        <Link to={`/users/edit/${user.id}`} className="button is-small is-info">
           Edit
         </Link>
         <button className="button is-small is-danger" onClick={() => deleteUser(user.id)}>
@@ -43,7 +43,7 @@ const UserList = () => {
   return (
     <section className="columns mt-5 is-centered">
       <div className="column is-half">
-        <Link to="/add" className="button is-primary mb-3">
+        <Link to="/users/add" className="button is-primary mb-3">
           Add
         </Link>
         <table className="table is-striped is-fullwidth">

@@ -12,7 +12,7 @@ const AddUser = () => {
     e.preventDefault();
     try {
       await axios.post(`http://localhost:3000/users`, { name, email, gender });
-      navigate("/");
+      navigate("/users");
     } catch (error) {
       console.log(error);
     }
@@ -49,7 +49,7 @@ const AddUser = () => {
             <button type="submit" className="button is-success">
               Save
             </button>
-            <Link to="/" className="button">
+            <Link to="/users" className="button">
               Back
             </Link>
           </div>

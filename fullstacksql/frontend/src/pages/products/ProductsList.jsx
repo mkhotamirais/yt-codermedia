@@ -37,7 +37,7 @@ const ProductsList = () => {
           </div>
         </div>
         <footer className="card-footer">
-          <Link to={`/editProduct/${product.id}`} className="card-footer-item">
+          <Link to={`/products/edit/${product.id}`} className="card-footer-item">
             Edit
           </Link>
           <a className="card-footer-item" onClick={() => deleteProduct(product.id)}>
@@ -49,7 +49,7 @@ const ProductsList = () => {
   ));
   return (
     <section className="container mt-5">
-      <Link to="/addProduct" className="button is-success mb-3">
+      <Link to="/products/add" className="button is-success mb-3">
         Add
       </Link>
       <div className="columns is-multiline">{renderedProducts}</div>
